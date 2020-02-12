@@ -31,6 +31,41 @@
     } completed:^{
         
     }];
+    
+    NSDictionary *dic = @{@"name":@"mzl",@"age":@18};
+    [dic.rac_sequence.signal subscribeNext:^(RACTuple *x) {
+        // 解包元组，会把元组的值，按顺序给参数里面的变量赋值
+        RACTupleUnpack(NSString *key,NSString *value) = x;
+        
+        // 相当于以下写法
+        //        NSString *key = x[0];
+        //        NSString *value = x[1];
+        
+        NSLog(@"%@ %@",key,value);
+
+    }];
+    
+    
+    RACReplaySubject *replaySubject = [RACReplaySubject subject];
+    
+    // 2.发送信号
+    [replaySubject sendNext:@1];
+    [replaySubject sendNext:@2];
+    
+    // 3.订阅信号
+    [replaySubject subscribeNext:^(id x) {
+        
+        NSLog(@"第一个订阅者接收到的数据%@",x);
+    }];
+    
+    // 订阅信号
+    [replaySubject subscribeNext:^(id x) {
+        
+        NSLog(@"第二个订阅者接收到的数据%@",x);
+    }];
+    
+    
+
 }
 
 
@@ -294,6 +329,8 @@
 
 //distinctUntilChanged
 
+
+
 @end
 
 
@@ -316,4 +353,7 @@
 
 
 //http://www.cocoachina.com/articles/8737
+
+//坑
+//https://www.cnblogs.com/guoxiaoqian/p/4691035.html
 
