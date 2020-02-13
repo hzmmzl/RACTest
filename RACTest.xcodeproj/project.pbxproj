@@ -3,18 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		035E249023F2818B00BAD899 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E248F23F2818B00BAD899 /* AppDelegate.m */; };
 		035E249323F2818B00BAD899 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E249223F2818B00BAD899 /* ViewController.m */; };
-		035E249623F2818B00BAD899 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 035E249423F2818B00BAD899 /* Main.storyboard */; };
 		035E249823F2818C00BAD899 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 035E249723F2818C00BAD899 /* Assets.xcassets */; };
 		035E249B23F2818C00BAD899 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 035E249923F2818C00BAD899 /* LaunchScreen.storyboard */; };
 		035E249E23F2818C00BAD899 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E249D23F2818C00BAD899 /* main.m */; };
 		035E24A823F2818C00BAD899 /* RACTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E24A723F2818C00BAD899 /* RACTestTests.m */; };
 		035E24B323F2818C00BAD899 /* RACTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E24B223F2818C00BAD899 /* RACTestUITests.m */; };
+		035E24CC23F4F35300BAD899 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E24CB23F4F35300BAD899 /* TestViewController.m */; };
+		035E24D123F4F3D200BAD899 /* TestDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E24D023F4F3D200BAD899 /* TestDelegateView.m */; };
+		035E24D423F4FE7F00BAD899 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E24D323F4FE7F00BAD899 /* BaseTableViewCell.m */; };
+		035E24D723F5341400BAD899 /* RACCommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E24D623F5341400BAD899 /* RACCommandViewController.m */; };
+		035E24DA23F5386A00BAD899 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E24D923F5386A00BAD899 /* BaseViewController.m */; };
 		59437069833222BE5F95C7EC /* Pods_RACTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6133134B47D2692498B7A87D /* Pods_RACTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +45,6 @@
 		035E248F23F2818B00BAD899 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		035E249123F2818B00BAD899 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		035E249223F2818B00BAD899 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		035E249523F2818B00BAD899 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		035E249723F2818C00BAD899 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		035E249A23F2818C00BAD899 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		035E249C23F2818C00BAD899 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,6 +55,16 @@
 		035E24AE23F2818C00BAD899 /* RACTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RACTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		035E24B223F2818C00BAD899 /* RACTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACTestUITests.m; sourceTree = "<group>"; };
 		035E24B423F2818C00BAD899 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		035E24CA23F4F35300BAD899 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		035E24CB23F4F35300BAD899 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		035E24CF23F4F3D200BAD899 /* TestDelegateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDelegateView.h; sourceTree = "<group>"; };
+		035E24D023F4F3D200BAD899 /* TestDelegateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDelegateView.m; sourceTree = "<group>"; };
+		035E24D223F4FE7F00BAD899 /* BaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
+		035E24D323F4FE7F00BAD899 /* BaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
+		035E24D523F5341400BAD899 /* RACCommandViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACCommandViewController.h; sourceTree = "<group>"; };
+		035E24D623F5341400BAD899 /* RACCommandViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACCommandViewController.m; sourceTree = "<group>"; };
+		035E24D823F5386A00BAD899 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		035E24D923F5386A00BAD899 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		504BCFFDDCC8980C49D21B04 /* Pods-RACTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RACTest.release.xcconfig"; path = "Target Support Files/Pods-RACTest/Pods-RACTest.release.xcconfig"; sourceTree = "<group>"; };
 		6133134B47D2692498B7A87D /* Pods_RACTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RACTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD8FCF59C18795496091C73 /* Pods-RACTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RACTest.debug.xcconfig"; path = "Target Support Files/Pods-RACTest/Pods-RACTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,11 +121,10 @@
 		035E248D23F2818B00BAD899 /* RACTest */ = {
 			isa = PBXGroup;
 			children = (
+				035E24CE23F4F39500BAD899 /* Controller */,
+				035E24CD23F4F38400BAD899 /* View */,
 				035E248E23F2818B00BAD899 /* AppDelegate.h */,
 				035E248F23F2818B00BAD899 /* AppDelegate.m */,
-				035E249123F2818B00BAD899 /* ViewController.h */,
-				035E249223F2818B00BAD899 /* ViewController.m */,
-				035E249423F2818B00BAD899 /* Main.storyboard */,
 				035E249723F2818C00BAD899 /* Assets.xcassets */,
 				035E249923F2818C00BAD899 /* LaunchScreen.storyboard */,
 				035E249C23F2818C00BAD899 /* Info.plist */,
@@ -139,13 +151,38 @@
 			path = RACTestUITests;
 			sourceTree = "<group>";
 		};
+		035E24CD23F4F38400BAD899 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				035E24CF23F4F3D200BAD899 /* TestDelegateView.h */,
+				035E24D023F4F3D200BAD899 /* TestDelegateView.m */,
+				035E24D223F4FE7F00BAD899 /* BaseTableViewCell.h */,
+				035E24D323F4FE7F00BAD899 /* BaseTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		035E24CE23F4F39500BAD899 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				035E249123F2818B00BAD899 /* ViewController.h */,
+				035E249223F2818B00BAD899 /* ViewController.m */,
+				035E24D823F5386A00BAD899 /* BaseViewController.h */,
+				035E24D923F5386A00BAD899 /* BaseViewController.m */,
+				035E24CA23F4F35300BAD899 /* TestViewController.h */,
+				035E24CB23F4F35300BAD899 /* TestViewController.m */,
+				035E24D523F5341400BAD899 /* RACCommandViewController.h */,
+				035E24D623F5341400BAD899 /* RACCommandViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		A59E99B174C4EE316DAB0260 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				EAD8FCF59C18795496091C73 /* Pods-RACTest.debug.xcconfig */,
 				504BCFFDDCC8980C49D21B04 /* Pods-RACTest.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -264,7 +301,6 @@
 			files = (
 				035E249B23F2818C00BAD899 /* LaunchScreen.storyboard in Resources */,
 				035E249823F2818C00BAD899 /* Assets.xcassets in Resources */,
-				035E249623F2818B00BAD899 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,8 +367,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				035E24D723F5341400BAD899 /* RACCommandViewController.m in Sources */,
+				035E24DA23F5386A00BAD899 /* BaseViewController.m in Sources */,
+				035E24D423F4FE7F00BAD899 /* BaseTableViewCell.m in Sources */,
+				035E24D123F4F3D200BAD899 /* TestDelegateView.m in Sources */,
 				035E249323F2818B00BAD899 /* ViewController.m in Sources */,
 				035E249E23F2818C00BAD899 /* main.m in Sources */,
+				035E24CC23F4F35300BAD899 /* TestViewController.m in Sources */,
 				035E249023F2818B00BAD899 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,14 +410,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		035E249423F2818B00BAD899 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				035E249523F2818B00BAD899 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		035E249923F2818C00BAD899 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

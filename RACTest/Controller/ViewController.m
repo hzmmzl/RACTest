@@ -11,8 +11,17 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface ViewController ()
+#import "BaseTableViewCell.h"
 
+#import "TestViewController.h"
+#import "RACCommandViewController.h"
+
+
+
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic,strong) UITableView *tableView;
+
+@property (nonatomic,strong) NSArray *titleArray;
 @end
 
 @implementation ViewController
@@ -21,6 +30,56 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.tableView.frame = self.view.bounds;
+    [self.view addSubview:self.tableView];
+
+}
+
+#pragma mark - UITableViewDelegate,UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 20;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BaseTableViewCell *cell = [BaseTableViewCell cellWithTableView:tableView];
+    if (self.titleArray.count > indexPath.row) {
+        cell.textLabel.text = self.titleArray[indexPath.row];
+    } else {
+        cell.textLabel.text = @"";
+    }
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        TestViewController *testVC = [[TestViewController alloc] init];
+        [self.navigationController pushViewController:testVC animated:YES];
+    } else if (indexPath.row == 1) {
+        RACCommandViewController *vc = [[RACCommandViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
+#pragma mark - Lazy
+
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] init];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+    }
+    return _tableView;
+}
+
+- (NSArray *)titleArray {
+    if (!_titleArray) {
+        _titleArray = @[@"TestDelegate",@"RACCommand"];
+    }
+    return _titleArray;
+}
+
+- (void)test3 {
     RACSignal *signal = [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         //        subscriber sendNext:<#(nullable id)#>
         return nil;
@@ -42,7 +101,7 @@
         //        NSString *value = x[1];
         
         NSLog(@"%@ %@",key,value);
-
+        
     }];
     
     
@@ -63,9 +122,6 @@
         
         NSLog(@"第二个订阅者接收到的数据%@",x);
     }];
-    
-    
-
 }
 
 
@@ -350,7 +406,7 @@
 
 
 
-  
+
 
 //http://www.cocoachina.com/articles/8737
 
