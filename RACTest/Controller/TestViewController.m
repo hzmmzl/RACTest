@@ -9,9 +9,14 @@
 #import "TestViewController.h"
 #import "TestDelegateView.h"
 #import <ReactiveObjC.h>
+#import <UIKit/UIKit.h>
 
 @interface TestViewController ()
 @property (nonatomic,strong) TestDelegateView *deleView;
+@property (nonatomic,copy) NSString *valueA;
+@property (nonatomic,copy) NSString *valueB;
+
+
 @end
 
 @implementation TestViewController
@@ -60,5 +65,36 @@
     }];
     
     [self rac_liftSelector:@selector(dosomething) withSignalsFromArray:@[request1,request2]];
+}
+
+- (void)test2 {
+    RACChannelTerminal *channelA = RACChannelTo(self, valueA);
+    RACChannelTerminal *channelB = RACChannelTo(self, valueB);
+    [[channelA map:^id(NSString *value) {
+        if ([value isEqualToString:@"西"]) {
+            return @"东";
+        }
+        return value;
+    }] subscribe:channelB];
+    [[channelB map:^id(NSString *value) {
+        if ([value isEqualToString:@"左"]) {
+            return @"右";
+        }
+        return value;
+    }] subscribe:channelA];
+    
+    [[RACObserve(self, valueA) filter:^BOOL(id value) {
+        return value ? YES : NO;
+    }] subscribeNext:^(NSString *x) {
+        NSLog(@"你向%@", x);
+    }];
+    [[RACObserve(self, valueB) filter:^BOOL(id value) {
+        return value ? YES : NO;
+    }] subscribeNext:^(NSString *x) {
+        NSLog(@"他向%@", x);
+    }];
+    self.valueA = @"西";
+    self.valueB = @"左";
+ 
 }
 @end
