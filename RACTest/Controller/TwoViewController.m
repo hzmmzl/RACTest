@@ -64,7 +64,22 @@
     [signal sendNext:@1];
     
     // 3.concat
+    RACSignal *signalA = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@1];
+        [subscriber sendCompleted];
+        return nil;
+    }];
     
+    RACSignal *signalB = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@2];
+        return nil;
+    }];
+    
+    // 把signalA拼接到signalB后，signalA发送完成，signalB才会被激活
+    [[signalA concat:signalB] subscribeNext:^(id  _Nullable x) {
+        
+    }];
+
 }
 
 
