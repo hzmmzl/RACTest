@@ -15,7 +15,8 @@
 @property (nonatomic,strong) NSMutableArray *mutableArray;
 
 @property (nonatomic,strong) UITextField *textField;
-
+@property (nonatomic,strong) UITextField *passwordtextField;
+@property (nonatomic,strong) UIButton *loginBtn;
 
 @end
 
@@ -25,6 +26,8 @@
     [super viewDidLoad];
     
     [self.view addSubview:self.textField];
+    [self.view addSubview:self.passwordtextField];
+    [self.view addSubview:self.loginBtn];
     [self test];
 }
 
@@ -79,6 +82,46 @@
     [[signalA concat:signalB] subscribeNext:^(id  _Nullable x) {
         
     }];
+    
+    // 4. then
+  // 功能和const相似
+    [[signal then:^RACSignal * _Nonnull{
+        return signalB;
+    }] subscribeNext:^(id  _Nullable x) {
+        
+    }];
+    
+    // 5. merge
+    [[signalA merge:signalB] subscribeNext:^(id  _Nullable x) {
+        // 任意一个信号发送内容都会来这个block
+    }];
+
+    // 6.zipWith
+    // 压缩成一个信号
+    // zipWith:当一个界面多个请求的时候,要等所有请求完成才能更新UI
+    // zipWith:等所有信号都发送内容的时候才会调用
+    RACSignal *zipSignal = [[signalA zipWith:signalB] subscribeNext:^(id  _Nullable x) {
+        
+    }];
+    
+    // 7.combineLatest,reduce
+    RACSignal *comineSiganl = [RACSignal combineLatest:@[self.textField.rac_textSignal,self.passwordtextField.rac_textSignal] reduce:^id(NSString *account,NSString *pwd){
+        // block:只要源信号发送内容就会调用,组合成新一个值
+        NSLog(@"%@ %@",account,pwd);
+        // 聚合的值就是组合信号的内容
+        
+        return @(account.length && pwd.length);
+    }];
+    
+    // 订阅组合信号
+    //    [comineSiganl subscribeNext:^(id x) {
+    //        _loginBtn.enabled = [x boolValue];
+    //    }];
+    
+    RAC(self.loginBtn,enabled) = comineSiganl;
+    
+
+    
 
 }
 
@@ -102,8 +145,29 @@
 - (UITextField *)textField {
     if (!_textField) {
         _textField = [[UITextField alloc] initWithFrame:CGRectMake(100, 100, 200, 50)];
+        _textField.backgroundColor = [UIColor cyanColor];
     }
     return _textField;
+}
+
+- (UITextField *)passwordtextField {
+    if (!_passwordtextField) {
+        _passwordtextField = [[UITextField alloc] initWithFrame:CGRectMake(100, 200, 200, 50)];
+        _passwordtextField.backgroundColor = [UIColor cyanColor];
+
+    }
+    return _passwordtextField;
+}
+
+- (UIButton *)loginBtn {
+    if (!_loginBtn) {
+        _loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(150, 300, 100, 44)];
+        _loginBtn.enabled = NO;
+        [_loginBtn setTitle:@"sure" forState:(UIControlStateNormal)];
+        [_loginBtn setTitleColor:[UIColor redColor] forState:(UIControlStateNormal)];
+        [_loginBtn setTitleColor:[UIColor grayColor] forState:(UIControlStateDisabled)];
+    }
+    return _loginBtn;
 }
 
 @end
