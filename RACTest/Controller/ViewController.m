@@ -15,6 +15,7 @@
 
 #import "TestViewController.h"
 #import "RACCommandViewController.h"
+#import "TwoViewController.h"
 
 
 
@@ -38,7 +39,7 @@
 #pragma mark - UITableViewDelegate,UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return self.titleArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -55,9 +56,19 @@
     if (indexPath.row == 0) {
         TestViewController *testVC = [[TestViewController alloc] init];
         [self.navigationController pushViewController:testVC animated:YES];
-    } else if (indexPath.row == 1) {
+        return;
+    }
+    
+    if (indexPath.row == 1) {
         RACCommandViewController *vc = [[RACCommandViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    
+    if (indexPath.row == 2) {
+        TwoViewController *vc = [[TwoViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
     }
 }
 
@@ -74,7 +85,7 @@
 
 - (NSArray *)titleArray {
     if (!_titleArray) {
-        _titleArray = @[@"TestDelegate",@"RACCommand"];
+        _titleArray = @[@"TestDelegate",@"RACCommand",@"常见操作方法"];
     }
     return _titleArray;
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030A77FC23FBD71300EFFB29 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030A77FB23FBD71300EFFB29 /* TwoViewController.m */; };
 		035E249023F2818B00BAD899 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E248F23F2818B00BAD899 /* AppDelegate.m */; };
 		035E249323F2818B00BAD899 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E249223F2818B00BAD899 /* ViewController.m */; };
 		035E249823F2818C00BAD899 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 035E249723F2818C00BAD899 /* Assets.xcassets */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		030A77FA23FBD71300EFFB29 /* TwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
+		030A77FB23FBD71300EFFB29 /* TwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
 		035E248B23F2818B00BAD899 /* RACTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RACTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		035E248E23F2818B00BAD899 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		035E248F23F2818B00BAD899 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				035E24CB23F4F35300BAD899 /* TestViewController.m */,
 				035E24D523F5341400BAD899 /* RACCommandViewController.h */,
 				035E24D623F5341400BAD899 /* RACCommandViewController.m */,
+				030A77FA23FBD71300EFFB29 /* TwoViewController.h */,
+				030A77FB23FBD71300EFFB29 /* TwoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				035E24D123F4F3D200BAD899 /* TestDelegateView.m in Sources */,
 				035E249323F2818B00BAD899 /* ViewController.m in Sources */,
 				035E249E23F2818C00BAD899 /* main.m in Sources */,
+				030A77FC23FBD71300EFFB29 /* TwoViewController.m in Sources */,
 				035E24CC23F4F35300BAD899 /* TestViewController.m in Sources */,
 				035E249023F2818B00BAD899 /* AppDelegate.m in Sources */,
 			);
