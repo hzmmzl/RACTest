@@ -223,7 +223,72 @@
 //    takeWhileBlock
 //    和takeUntilBlock相反  对于每个next值，block返回 YES时才取值
 
-
+    
+    // doNext: 执行Next之前，会先执行这个Block
+    // doCompleted: 执行sendCompleted之前，会先执行这个Block
+    [[[[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@1];
+        [subscriber sendCompleted];
+        return nil;
+    }] doNext:^(id x) {
+        // 执行[subscriber sendNext:@1];之前会调用这个Block
+        NSLog(@"doNext");;
+    }] doCompleted:^{
+        // 执行[subscriber sendCompleted];之前会调用这个Block
+        NSLog(@"doCompleted");;
+        
+    }] subscribeNext:^(id x) {
+        
+        NSLog(@"%@",x);
+    }];
+    
+    // timeout
+//    可以让一个信号在一定的时间后，自动报错
+    RACSignal *signalTime = [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@(88)];
+        return nil;
+    }] timeout:1 onScheduler:[RACScheduler currentScheduler]];
+    
+    [signalTime subscribeNext:^(id x) {
+        
+        NSLog(@"%@",x);
+    } error:^(NSError *error) {
+        // 1秒后会自动调用
+        NSLog(@"%@",error);
+    }];
+    
+    // interval :定时器
+    [[RACSignal interval:1 onScheduler:[RACScheduler currentScheduler]] subscribeNext:^(NSDate * _Nullable x) {
+        
+    }];
+    
+    // delay
+    [[signal delay:1] subscribeNext:^(id  _Nullable x) {
+        
+    }];
+    
+    // retry只要失败，就会重新执行创建信号中的block,直到成功.
+    __block int i = 0;
+    [[[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        
+        if (i == 10) {
+            [subscriber sendNext:@1];
+        } else{
+            NSLog(@"接收到错误");
+            [subscriber sendError:nil];
+        }
+        i++;
+        
+        return nil;
+        
+    }] retry] subscribeNext:^(id x) {
+        
+        NSLog(@"%@",x);
+        
+    } error:^(NSError *error) {
+        
+        
+    }];
 }
 
 
