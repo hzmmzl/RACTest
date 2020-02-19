@@ -121,8 +121,23 @@
     RAC(self.loginBtn,enabled) = comineSiganl;
     
 
+    // 8.filter
+    NSArray *tempArr = [self.testArray.rac_sequence filter:^BOOL(NSString *value) {
+        return value.integerValue > 4;
+    }];
     
+    [[RACObserve(self, mutableArray) filter:^BOOL(NSMutableArray *value) {
+        return value.count > 3;
+    }] subscribeNext:^(id  _Nullable x) {
+        
+    }];
 
+    [[self.textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
+        // 只有当输入字数大于3的时候才触发
+        return value.length > 3;
+    }] subscribeNext:^(NSString * _Nullable x) {
+        
+    }];
 }
 
 
