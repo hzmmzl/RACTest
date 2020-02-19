@@ -161,6 +161,68 @@
 //    这个比较极端，忽略所有值，只关心Signal结束，也就是只取Comletion和Error两个消息，中间所有值都丢弃。
 //    注意，这个操作应该出现在Signal有终止条件的的情况下，如rac_textSignal这样除dealloc外没有终止条件的Signal上就不太可能用到。
 
+    // distinctUntilChanged
+//    当上一次的值和当前的值有明显的变化就会发出信号，否则会被忽略掉。
+    [[self.textField.rac_textSignal distinctUntilChanged] subscribeNext:^(id x) {  NSLog(@"%@",x);}];
+
+    RACSubject *subject1 = [RACSubject subject];
+    
+    [[subject1 distinctUntilChanged] subscribeNext:^(id x) {
+        NSLog(@"%@",x);
+    }];
+    
+    [subject1 sendNext:@"1"];
+    [subject1 sendNext:@"2"];
+    [subject1 sendNext:@"2"];//不会被订阅到
+    
+    // take
+    RACSubject *subjectTake = [RACSubject subject];
+    
+    RACSubject *signalTake = [RACSubject subject];
+    
+    // take:取前面几个值,从开始一共取N次的next值，不包括Competion和Error
+
+    // takeLast:取后面多少个值.必须要发送完成
+    // takeUntil:只要传入信号发送完成或者发送任意数据,就不能在接收源信号的内容
+    [[subjectTake takeUntil:signalTake] subscribeNext:^(id x) {
+        NSLog(@"%@",x);
+    }];
+    
+    [subjectTake sendNext:@"1"];
+    
+    //    [signalTake sendNext:@1];
+    //    [signalTake sendCompleted];
+    [signalTake sendError:nil];
+    
+    [subjectTake sendNext:@"2"];
+    [subjectTake sendNext:@"3"];
+
+
+    [[subjectTake takeLast:2] subscribeNext:^(id  _Nullable x) {
+        
+    }];
+    
+    
+    [[[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"1"];
+        [subscriber sendNext:@"2"];
+        [subscriber sendNext:@"3"];
+        [subscriber sendCompleted];
+        return nil;
+    }] take:2] subscribeNext:^(id x) {
+        NSLog(@"only 1 and 2 will be print: %@", x);
+    }];
+    
+//    takeUntilBlock
+//    对于每个next值，运行block，当block返回YES时停止取值
+    [[self.textField.rac_textSignal takeUntilBlock:^BOOL(NSString *value) {
+        return [value isEqualToString:@"stop"];
+    }] subscribeNext:^(NSString *value) {
+    }];
+
+//    takeWhileBlock
+//    和takeUntilBlock相反  对于每个next值，block返回 YES时才取值
+
 
 }
 
