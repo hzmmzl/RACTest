@@ -29,6 +29,7 @@
     [self.view addSubview:self.passwordtextField];
     [self.view addSubview:self.loginBtn];
     [self test];
+    [self testCategory];
 }
 
 
@@ -289,6 +290,57 @@
         
         
     }];
+    
+    
+    // replay
+    // 和RACReplaySubject功能相同
+    RACSignal *replaySignal = [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        
+        
+        [subscriber sendNext:@1];
+        [subscriber sendNext:@2];
+        
+        return nil;
+    }] replay];
+    
+    [replaySignal subscribeNext:^(id x) {
+        
+        NSLog(@"第一个订阅者%@",x);
+        
+    }];
+    
+    [replaySignal subscribeNext:^(id x) {
+        
+        NSLog(@"第二个订阅者%@",x);
+        
+    }];
+    
+    // throttle
+//    节流，在一定时间（1秒）内，不接收任何信号内容，过了这个时间（1秒）获取最后发送的信号内容发出。
+    [[signal throttle:1] subscribeNext:^(id x) {
+        
+        NSLog(@"%@",x);
+    }];
+}
+
+
+- (void)testCategory {
+    
+//    [[[cell.detailButton
+//       rac_signalForControlEvents:UIControlEventTouchUpInside]
+//      takeUntil:cell.rac_prepareForReuseSignal]
+//     subscribeNext:^(id x) {
+//     }];
+    // 如果不加takeUntil:cell.rac_prepareForReuseSignal，那么每次Cell被重用时，该button都会被addTarget:sele
+    
+    UIAlertView *alertView = [[UIAlertView alloc] init];
+    [alertView.rac_buttonClickedSignal subscribeNext:^(NSNumber * _Nullable x) {
+        
+    }];
+    
+    NSData *date = [NSData data];
+
+
 }
 
 
