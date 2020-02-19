@@ -138,6 +138,30 @@
     }] subscribeNext:^(NSString * _Nullable x) {
         
     }];
+
+    // ignore:忽略一些值
+    //    注意，这里忽略的既可以是地址相同的对象，也可以是- isEqual:结果相同的值，也就是说自己写的Model对象可以通过重写- isEqual:方法来使- ignore:生效。
+    [[self.textField.rac_textSignal ignore:@"3a"] subscribeNext:^(NSString * _Nullable x) {
+        
+    }];
+    
+    // ignoreValues:忽略所有的值
+    RACSubject *subject = [RACSubject subject];
+    // 2.忽略一些
+    RACSignal *ignoreSignal = [subject ignoreValues];
+    // 3.订阅信号
+    [ignoreSignal subscribeNext:^(id x) {
+        NSLog(@"%@",x);
+    }];
+    
+    // 4.发送数据
+    [subject sendNext:@"13"];
+    [subject sendNext:@"2"];
+    [subject sendNext:@"44"];
+//    这个比较极端，忽略所有值，只关心Signal结束，也就是只取Comletion和Error两个消息，中间所有值都丢弃。
+//    注意，这个操作应该出现在Signal有终止条件的的情况下，如rac_textSignal这样除dealloc外没有终止条件的Signal上就不太可能用到。
+
+
 }
 
 
