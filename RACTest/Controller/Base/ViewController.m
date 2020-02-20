@@ -70,6 +70,10 @@
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
+    
+    if (indexPath.row == 3) {
+        
+    }
 }
 
 #pragma mark - Lazy
@@ -85,7 +89,7 @@
 
 - (NSArray *)titleArray {
     if (!_titleArray) {
-        _titleArray = @[@"TestDelegate",@"RACCommand",@"常见操作方法"];
+        _titleArray = @[@"TestDelegate",@"RACCommand",@"常见操作方法",@"登录注册"];
     }
     return _titleArray;
 }

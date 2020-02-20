@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		030A77FC23FBD71300EFFB29 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030A77FB23FBD71300EFFB29 /* TwoViewController.m */; };
+		030A780223FE6E9A00EFFB29 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030A780123FE6E9A00EFFB29 /* RegisterViewController.m */; };
+		030A780523FE6EB100EFFB29 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030A780423FE6EB100EFFB29 /* LoginViewController.m */; };
 		035E249023F2818B00BAD899 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E248F23F2818B00BAD899 /* AppDelegate.m */; };
 		035E249323F2818B00BAD899 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E249223F2818B00BAD899 /* ViewController.m */; };
 		035E249823F2818C00BAD899 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 035E249723F2818C00BAD899 /* Assets.xcassets */; };
@@ -43,6 +45,10 @@
 /* Begin PBXFileReference section */
 		030A77FA23FBD71300EFFB29 /* TwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
 		030A77FB23FBD71300EFFB29 /* TwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
+		030A780023FE6E9A00EFFB29 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		030A780123FE6E9A00EFFB29 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		030A780323FE6EB100EFFB29 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		030A780423FE6EB100EFFB29 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		035E248B23F2818B00BAD899 /* RACTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RACTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		035E248E23F2818B00BAD899 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		035E248F23F2818B00BAD899 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -99,6 +105,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		030A77FD23FE69A200EFFB29 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				035E249123F2818B00BAD899 /* ViewController.h */,
+				035E249223F2818B00BAD899 /* ViewController.m */,
+				035E24D823F5386A00BAD899 /* BaseViewController.h */,
+				035E24D923F5386A00BAD899 /* BaseViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		030A77FE23FE69BB00EFFB29 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				035E24CA23F4F35300BAD899 /* TestViewController.h */,
+				035E24CB23F4F35300BAD899 /* TestViewController.m */,
+				035E24D523F5341400BAD899 /* RACCommandViewController.h */,
+				035E24D623F5341400BAD899 /* RACCommandViewController.m */,
+				030A77FA23FBD71300EFFB29 /* TwoViewController.h */,
+				030A77FB23FBD71300EFFB29 /* TwoViewController.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		030A77FF23FE69CF00EFFB29 /* RegisterAndLogin */ = {
+			isa = PBXGroup;
+			children = (
+				030A780923FE6F3600EFFB29 /* ViewModel */,
+				030A780823FE6EE100EFFB29 /* Model */,
+				030A780723FE6ED700EFFB29 /* View */,
+				030A780623FE6EBF00EFFB29 /* Controller */,
+			);
+			path = RegisterAndLogin;
+			sourceTree = "<group>";
+		};
+		030A780623FE6EBF00EFFB29 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				030A780023FE6E9A00EFFB29 /* RegisterViewController.h */,
+				030A780123FE6E9A00EFFB29 /* RegisterViewController.m */,
+				030A780323FE6EB100EFFB29 /* LoginViewController.h */,
+				030A780423FE6EB100EFFB29 /* LoginViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		030A780723FE6ED700EFFB29 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		030A780823FE6EE100EFFB29 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		030A780923FE6F3600EFFB29 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		035E248223F2818B00BAD899 = {
 			isa = PBXGroup;
 			children = (
@@ -168,16 +241,9 @@
 		035E24CE23F4F39500BAD899 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				035E249123F2818B00BAD899 /* ViewController.h */,
-				035E249223F2818B00BAD899 /* ViewController.m */,
-				035E24D823F5386A00BAD899 /* BaseViewController.h */,
-				035E24D923F5386A00BAD899 /* BaseViewController.m */,
-				035E24CA23F4F35300BAD899 /* TestViewController.h */,
-				035E24CB23F4F35300BAD899 /* TestViewController.m */,
-				035E24D523F5341400BAD899 /* RACCommandViewController.h */,
-				035E24D623F5341400BAD899 /* RACCommandViewController.m */,
-				030A77FA23FBD71300EFFB29 /* TwoViewController.h */,
-				030A77FB23FBD71300EFFB29 /* TwoViewController.m */,
+				030A77FF23FE69CF00EFFB29 /* RegisterAndLogin */,
+				030A77FE23FE69BB00EFFB29 /* Other */,
+				030A77FD23FE69A200EFFB29 /* Base */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -377,9 +443,11 @@
 				035E24D423F4FE7F00BAD899 /* BaseTableViewCell.m in Sources */,
 				035E24D123F4F3D200BAD899 /* TestDelegateView.m in Sources */,
 				035E249323F2818B00BAD899 /* ViewController.m in Sources */,
+				030A780223FE6E9A00EFFB29 /* RegisterViewController.m in Sources */,
 				035E249E23F2818C00BAD899 /* main.m in Sources */,
 				030A77FC23FBD71300EFFB29 /* TwoViewController.m in Sources */,
 				035E24CC23F4F35300BAD899 /* TestViewController.m in Sources */,
+				030A780523FE6EB100EFFB29 /* LoginViewController.m in Sources */,
 				035E249023F2818B00BAD899 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
