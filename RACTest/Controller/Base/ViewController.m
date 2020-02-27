@@ -16,6 +16,8 @@
 #import "TestViewController.h"
 #import "RACCommandViewController.h"
 #import "TwoViewController.h"
+#import "LoginViewController.h"
+#import "RegisterViewController.h"
 
 
 
@@ -72,7 +74,9 @@
     }
     
     if (indexPath.row == 3) {
-        
+        RegisterViewController *vc = [[RegisterViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
     }
 }
 

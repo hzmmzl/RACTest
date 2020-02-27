@@ -64,6 +64,7 @@
 		033C960B2407A807009243B4 /* NSArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
 		033C960C2407A807009243B4 /* CALayer+GJAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+GJAddition.m"; sourceTree = "<group>"; };
 		033C960D2407A807009243B4 /* UIView+GJAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GJAddition.h"; sourceTree = "<group>"; };
+		033C96152407C82B009243B4 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		035E248B23F2818B00BAD899 /* RACTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RACTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		035E248E23F2818B00BAD899 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		035E248F23F2818B00BAD899 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -127,6 +128,7 @@
 				035E249223F2818B00BAD899 /* ViewController.m */,
 				035E24D823F5386A00BAD899 /* BaseViewController.h */,
 				035E24D923F5386A00BAD899 /* BaseViewController.m */,
+				033C96152407C82B009243B4 /* Header.h */,
 			);
 			path = Base;
 			sourceTree = "<group>";
