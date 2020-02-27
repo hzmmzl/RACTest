@@ -10,6 +10,11 @@
 		030A77FC23FBD71300EFFB29 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030A77FB23FBD71300EFFB29 /* TwoViewController.m */; };
 		030A780223FE6E9A00EFFB29 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030A780123FE6E9A00EFFB29 /* RegisterViewController.m */; };
 		030A780523FE6EB100EFFB29 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030A780423FE6EB100EFFB29 /* LoginViewController.m */; };
+		033C960424079C94009243B4 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 033C960324079C94009243B4 /* UserModel.m */; };
+		033C960E2407A807009243B4 /* UIView+GJAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 033C96072407A806009243B4 /* UIView+GJAddition.m */; };
+		033C960F2407A807009243B4 /* NSObject+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 033C960A2407A807009243B4 /* NSObject+Addition.m */; };
+		033C96102407A807009243B4 /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 033C960B2407A807009243B4 /* NSArray+Safe.m */; };
+		033C96112407A807009243B4 /* CALayer+GJAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 033C960C2407A807009243B4 /* CALayer+GJAddition.m */; };
 		035E249023F2818B00BAD899 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E248F23F2818B00BAD899 /* AppDelegate.m */; };
 		035E249323F2818B00BAD899 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E249223F2818B00BAD899 /* ViewController.m */; };
 		035E249823F2818C00BAD899 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 035E249723F2818C00BAD899 /* Assets.xcassets */; };
@@ -49,6 +54,16 @@
 		030A780123FE6E9A00EFFB29 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		030A780323FE6EB100EFFB29 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		030A780423FE6EB100EFFB29 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		033C960224079C94009243B4 /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		033C960324079C94009243B4 /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		033C96062407A806009243B4 /* NSArray+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Safe.h"; sourceTree = "<group>"; };
+		033C96072407A806009243B4 /* UIView+GJAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GJAddition.m"; sourceTree = "<group>"; };
+		033C96082407A806009243B4 /* CALayer+GJAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+GJAddition.h"; sourceTree = "<group>"; };
+		033C96092407A807009243B4 /* NSObject+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Addition.h"; sourceTree = "<group>"; };
+		033C960A2407A807009243B4 /* NSObject+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Addition.m"; sourceTree = "<group>"; };
+		033C960B2407A807009243B4 /* NSArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
+		033C960C2407A807009243B4 /* CALayer+GJAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+GJAddition.m"; sourceTree = "<group>"; };
+		033C960D2407A807009243B4 /* UIView+GJAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GJAddition.h"; sourceTree = "<group>"; };
 		035E248B23F2818B00BAD899 /* RACTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RACTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		035E248E23F2818B00BAD899 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		035E248F23F2818B00BAD899 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -161,6 +176,8 @@
 		030A780823FE6EE100EFFB29 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				033C960224079C94009243B4 /* UserModel.h */,
+				033C960324079C94009243B4 /* UserModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -170,6 +187,21 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		033C96052407A7E0009243B4 /* Addition */ = {
+			isa = PBXGroup;
+			children = (
+				033C96082407A806009243B4 /* CALayer+GJAddition.h */,
+				033C960C2407A807009243B4 /* CALayer+GJAddition.m */,
+				033C96062407A806009243B4 /* NSArray+Safe.h */,
+				033C960B2407A807009243B4 /* NSArray+Safe.m */,
+				033C96092407A807009243B4 /* NSObject+Addition.h */,
+				033C960A2407A807009243B4 /* NSObject+Addition.m */,
+				033C960D2407A807009243B4 /* UIView+GJAddition.h */,
+				033C96072407A806009243B4 /* UIView+GJAddition.m */,
+			);
+			path = Addition;
 			sourceTree = "<group>";
 		};
 		035E248223F2818B00BAD899 = {
@@ -199,6 +231,7 @@
 			children = (
 				035E24CE23F4F39500BAD899 /* Controller */,
 				035E24CD23F4F38400BAD899 /* View */,
+				033C96052407A7E0009243B4 /* Addition */,
 				035E248E23F2818B00BAD899 /* AppDelegate.h */,
 				035E248F23F2818B00BAD899 /* AppDelegate.m */,
 				035E249723F2818C00BAD899 /* Assets.xcassets */,
@@ -440,12 +473,17 @@
 			files = (
 				035E24D723F5341400BAD899 /* RACCommandViewController.m in Sources */,
 				035E24DA23F5386A00BAD899 /* BaseViewController.m in Sources */,
+				033C960424079C94009243B4 /* UserModel.m in Sources */,
+				033C960E2407A807009243B4 /* UIView+GJAddition.m in Sources */,
 				035E24D423F4FE7F00BAD899 /* BaseTableViewCell.m in Sources */,
 				035E24D123F4F3D200BAD899 /* TestDelegateView.m in Sources */,
 				035E249323F2818B00BAD899 /* ViewController.m in Sources */,
 				030A780223FE6E9A00EFFB29 /* RegisterViewController.m in Sources */,
+				033C96112407A807009243B4 /* CALayer+GJAddition.m in Sources */,
 				035E249E23F2818C00BAD899 /* main.m in Sources */,
+				033C960F2407A807009243B4 /* NSObject+Addition.m in Sources */,
 				030A77FC23FBD71300EFFB29 /* TwoViewController.m in Sources */,
+				033C96102407A807009243B4 /* NSArray+Safe.m in Sources */,
 				035E24CC23F4F35300BAD899 /* TestViewController.m in Sources */,
 				030A780523FE6EB100EFFB29 /* LoginViewController.m in Sources */,
 				035E249023F2818B00BAD899 /* AppDelegate.m in Sources */,
@@ -613,6 +651,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = RACTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -630,6 +669,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = RACTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
