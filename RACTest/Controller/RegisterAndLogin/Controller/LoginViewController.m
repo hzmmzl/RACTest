@@ -9,5 +9,8 @@
 #import "LoginViewController.h"
 
 @implementation LoginViewController
-
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"登录";
+}
 @end

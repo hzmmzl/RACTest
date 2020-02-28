@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 // 用户性别
 @property (nonatomic,strong) NSString *userGender;
 
+@property (nonatomic,assign) BOOL agreeProtocol; //同意协议
+
+
 - (void)saveUserItem:(UserModel *)item;
 
 

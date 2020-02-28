@@ -16,5 +16,5 @@
 #define SCREENWITH CGRectGetWidth([UIScreen mainScreen].bounds)
 //  RGB颜色
 #define RGBCOLOR(_red, _green, _blue) [UIColor colorWithRed:(_red)/255.0f green:(_green)/255.0f blue:(_blue)/255.0f alpha:1]
-
+#define RGBCOLORA(_red, _green, _blue, _alpha) [UIColor colorWithRed:(_red)/255.0f green:(_green)/255.0f blue:(_blue)/255.0f alpha:(_alpha)]
 #endif /* Header_h */

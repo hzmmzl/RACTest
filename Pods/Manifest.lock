@@ -1,16 +1,24 @@
 PODS:
+  - Masonry (1.1.0)
+  - MBProgressHUD (1.2.0)
   - ReactiveObjC (3.1.1)
 
 DEPENDENCIES:
+  - Masonry
+  - MBProgressHUD
   - ReactiveObjC
 
 SPEC REPOS:
   trunk:
+    - Masonry
+    - MBProgressHUD
     - ReactiveObjC
 
 SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
 
-PODFILE CHECKSUM: f4ed9b84c01f51f9e816d35861b26409b62db931
+PODFILE CHECKSUM: 02ef35298a6911bd4b1bb4b315dd6c8ab7d93c4e
 
 COCOAPODS: 1.8.4
