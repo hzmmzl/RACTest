@@ -18,9 +18,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**注册并登录命令*/
 @property (nonatomic, strong) RACCommand *registerCommand;
+/**获取验证码命令*/
+@property (nonatomic,strong) RACCommand *getVerificationCodeCommand;
 
 /**是否允许点击注册按钮信号*/
 @property (nonatomic, strong) RACSignal *enableRegisterSignal;
+
+/**登录命令*/
+@property (nonatomic, strong) RACCommand *loginCommand;
 
 @end
 

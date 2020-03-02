@@ -7,8 +7,73 @@
 //
 
 #import "RegisterAndLoginViewModel.h"
+#import "NetworkService.h"
 
 @implementation RegisterAndLoginViewModel
+
+#pragma mark - Private
+
+/**
+ 验证手机号请求
+ 
+ @param phoneNum 手机号
+ @param subscriber 订阅者
+ */
+- (void)verityPhoneNumWithPhone:(NSString *)phoneNum subscriber:(id<RACSubscriber>) subscriber {
+
+}
+
+- (void)verityPhoneNumWithPhone:(NSString *)phoneNum
+                        success:(nullable void(^)(NetworkService *))success
+                        failure:(nullable void(^)(void))failure  {
+    
+}
+
+- (void)login:(NSString *)phoneNum
+                        success:(nullable void(^)(NetworkService *))success
+                        failure:(nullable void(^)(void))failure  {
+    
+}
+
+/**
+ 获取验证码
+ 
+ @return <#return value description#>
+ */
+- (RACCommand *)getVerificationCodeCommand {
+    if (!_getVerificationCodeCommand) {
+        _getVerificationCodeCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            @weakify(self);
+            return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+                @strongify(self);
+                if (self.userModel.phoneNo.length > 11) {
+                    self.userModel.phoneNo = [self.userModel.phoneNo substringToIndex:11];
+                }
+//                if (![self.userModel.phoneNum validPhoneNum]) {
+//                    [subscriber sendError:[NSError errorWithDomain:SSJErrorDomain code:@"www.baidu.com" userInfo:@{NSLocalizedDescriptionKey:@"请输入正确的手机号"}]];
+//                }
+                [self verityPhoneNumWithPhone:self.userModel.phoneNo success:^(__kindof NetworkService *service) {
+                            if ([service.returnCode isEqualToString:@"1"]) {
+                                [subscriber sendError:[NSError errorWithDomain:@"" code:10086 userInfo:@{NSLocalizedDescriptionKey:@"该帐号已注册"}]];
+                            } else if ([service.returnCode isEqualToString:@"0"]) {//@"该帐号未注册"
+                                [subscriber sendNext:@{}];
+                                [subscriber sendCompleted];
+                            } else {
+                                [subscriber sendError:[NSError errorWithDomain:@"" code:100086 userInfo:@{NSLocalizedDescriptionKey:@""}]];
+                            }
+                    
+                } failure:^{
+                    [subscriber sendError:[NSError errorWithDomain:@"" code:10086 userInfo:@{NSLocalizedDescriptionKey:@"该帐号已注册"}]];
+                }];
+                return nil;
+            }] flattenMap:^__kindof RACSignal * (NSDictionary *result) {
+                return [RACSignal empty];
+            }];
+        }];
+    }
+    return _getVerificationCodeCommand;
+}
+
 
 
 #pragma mark - Lazy
@@ -61,6 +126,45 @@
         }];
     }
     return _enableRegisterSignal;
+}
+
+
+- (RACCommand *)loginCommand {
+    if (!_loginCommand) {
+        _loginCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @weakify(self);
+            return [[[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                @strongify(self);
+                // 1、判断手机号是否正确
+                // 2、判断手机号是否注册过
+                // 3、登录成功保存数据，发送通知
+                [self verityPhoneNumWithPhone:self.userModel.phoneNo success:^(__kindof NetworkService *service) {
+                    if ([service.returnCode isEqualToString:@"0"]) {
+                        [subscriber sendError:[NSError errorWithDomain:@"www.baidu.com" code:10086 userInfo:@{NSLocalizedDescriptionKey:@"该帐号未注册"}]];
+                    } else {
+                        [subscriber sendCompleted];
+                    }
+                } failure:^{
+                    [subscriber sendError:[NSError errorWithDomain:@"www.baidu.com" code:10086 userInfo:@{NSLocalizedDescriptionKey:@"该帐号未注册"}]];
+                }];
+                return nil;
+            }] then:^RACSignal * _Nonnull{
+                return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                    // 发送登录请求
+                    [self login:self.userModel.phoneNo success:^(NetworkService *service) {
+                        [subscriber sendNext:service.result]; // 返回登录信息
+                        [subscriber sendCompleted];
+                    } failure:^{
+                        [subscriber sendError:[NSError errorWithDomain:@"www.baidu.com" code:10086 userInfo:@{NSLocalizedDescriptionKey:@"登录失败"}]];
+                    }];
+                    return nil;
+                }];
+            }] map:^id _Nullable(NSDictionary *value) { // 转成字典
+                return value;
+            }];
+        }];
+    }
+    return _loginCommand;
 }
 
 - (UserModel *)userModel {

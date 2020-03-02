@@ -22,6 +22,7 @@
 
 @property (nonatomic,strong) UILabel *phoneL;
 @property (nonatomic,strong) UITextField *phoneTF; // 手机号
+@property (nonatomic,strong) UIButton *verCodeBtn;
 
 @property (nonatomic,strong) UILabel *pwdL;
 @property (nonatomic,strong) UITextField *pwdTF; // 密码
@@ -46,6 +47,7 @@
     [self.view addSubview:self.pwdTF];
     [self.view addSubview:self.verificationCodeL];
     [self.view addSubview:self.verificationCodeTF];
+    [self.view addSubview:self.verCodeBtn];
     
     [self.view addSubview:self.registerButton];
     [self.view addSubview:self.agreeButton];
@@ -143,6 +145,25 @@
     return _verificationCodeL;
 }
 
+- (UIButton *)verCodeBtn {
+    if (!_verCodeBtn) {
+        _verCodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.phoneTF.frame), CGRectGetMinY(self.phoneTF.frame), 70, 44)];
+        [_verCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+        [_verCodeBtn setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+        _verCodeBtn.backgroundColor = [UIColor colorWithHex:@"ea4a64"];
+        _verCodeBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+        
+        @weakify(self);
+        [[_verCodeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+            @strongify(self);
+            //发送验证码
+            [[self.viewModel.getVerificationCodeCommand execute:nil] subscribeNext:^(id  _Nullable x) {
+                
+            }];
+        }];
+    }
+    return _verCodeBtn;
+}
 
 - (UIButton *)registerButton {
     if (!_registerButton) {

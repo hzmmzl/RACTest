@@ -19,6 +19,7 @@
 		033C961B2408F10D009243B4 /* UIColor+SSJAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 033C961A2408F10D009243B4 /* UIColor+SSJAddition.m */; };
 		033C961E2408F708009243B4 /* RegisterAndLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 033C961D2408F708009243B4 /* RegisterAndLoginViewModel.m */; };
 		033C9621240913FB009243B4 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033C9620240913FB009243B4 /* ResultViewController.m */; };
+		033C9625240CE5A1009243B4 /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 033C9624240CE5A1009243B4 /* NetworkService.m */; };
 		035E249023F2818B00BAD899 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E248F23F2818B00BAD899 /* AppDelegate.m */; };
 		035E249323F2818B00BAD899 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 035E249223F2818B00BAD899 /* ViewController.m */; };
 		035E249823F2818C00BAD899 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 035E249723F2818C00BAD899 /* Assets.xcassets */; };
@@ -77,6 +78,8 @@
 		033C961D2408F708009243B4 /* RegisterAndLoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterAndLoginViewModel.m; sourceTree = "<group>"; };
 		033C961F240913FB009243B4 /* ResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		033C9620240913FB009243B4 /* ResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
+		033C9623240CE5A1009243B4 /* NetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
+		033C9624240CE5A1009243B4 /* NetworkService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkService.m; sourceTree = "<group>"; };
 		035E248B23F2818B00BAD899 /* RACTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RACTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		035E248E23F2818B00BAD899 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		035E248F23F2818B00BAD899 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -161,6 +164,7 @@
 		030A77FF23FE69CF00EFFB29 /* RegisterAndLogin */ = {
 			isa = PBXGroup;
 			children = (
+				033C9622240CE582009243B4 /* Service */,
 				030A780923FE6F3600EFFB29 /* ViewModel */,
 				030A780823FE6EE100EFFB29 /* Model */,
 				030A780723FE6ED700EFFB29 /* View */,
@@ -224,6 +228,15 @@
 				033C961A2408F10D009243B4 /* UIColor+SSJAddition.m */,
 			);
 			path = Addition;
+			sourceTree = "<group>";
+		};
+		033C9622240CE582009243B4 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				033C9623240CE5A1009243B4 /* NetworkService.h */,
+				033C9624240CE5A1009243B4 /* NetworkService.m */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		035E248223F2818B00BAD899 = {
@@ -512,6 +525,7 @@
 				035E24CC23F4F35300BAD899 /* TestViewController.m in Sources */,
 				030A780523FE6EB100EFFB29 /* LoginViewController.m in Sources */,
 				035E249023F2818B00BAD899 /* AppDelegate.m in Sources */,
+				033C9625240CE5A1009243B4 /* NetworkService.m in Sources */,
 				033C96182408EE3E009243B4 /* UIImage+Addition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
