@@ -18,7 +18,7 @@
         _registerCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             return [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
                 if (0) {//验证手机号
-                    // 如果手机号有误
+                    // 如果手机号有误  sendError不需要[subscriber sendCompleted];
                     [subscriber sendError:[NSError errorWithDomain:@"www.baidu.com" code:10086 userInfo:@{NSLocalizedDescriptionKey:@"请输入正确手机号"}]];
                     return nil;
                 }
@@ -26,8 +26,9 @@
                 // 发送请求
                 sleep(0.5);
                 [subscriber sendNext:@{}];
-//                [subscriber sendCompleted];
                 
+                // 这里一定要写不然信号一直未结束下次点击按钮将不执行
+                [subscriber sendCompleted];
                 
                 return nil;
             }] map:^id _Nullable(NSDictionary *result) {

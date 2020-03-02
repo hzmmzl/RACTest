@@ -18,8 +18,6 @@
 
 @property (nonatomic,strong) RegisterAndLoginViewModel *viewModel;
 
-@property (nonatomic, strong) UIButton *loginButton; // 登录按钮
-
 @property (nonatomic, strong) UIButton *registerButton; // 注册按钮
 
 @property (nonatomic,strong) UILabel *phoneL;
@@ -145,22 +143,6 @@
     return _verificationCodeL;
 }
 
-- (UIButton *)loginButton {
-    if (!_loginButton) {
-        _loginButton = [[UIButton alloc] initWithFrame:CGRectMake(100, CGRectGetMaxY(self.pwdL.frame) + 50, SCREENWITH - 200, 44)];
-        _loginButton.selected = YES;
-        [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
-        _loginButton.titleLabel.font = [UIFont systemFontOfSize:16];
-        [_loginButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        @weakify(self);
-        [[_loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-            @strongify(self);
-            
-        }];
-    }
-    return _loginButton;
-}
-
 
 - (UIButton *)registerButton {
     if (!_registerButton) {
@@ -190,6 +172,15 @@
                 ResultViewController *vc = [[ResultViewController alloc] init];
                 [self.navigationController pushViewController:vc animated:YES];
             }];
+            
+            // 当信号正在处理时发送信号，处理界面其他问题
+            [[[self.viewModel.registerCommand.executing skip:1] distinctUntilChanged] subscribeNext:^(NSNumber * _Nullable x) {
+                if ([x boolValue]) { // 正在执行（发送请求等等）
+                    self.pwdTF.userInteractionEnabled = NO;
+                } else {
+                    self.pwdTF.userInteractionEnabled = YES;
+                }
+            }];
         }];
     }
     return _registerButton;
@@ -198,7 +189,7 @@
 
 - (UIButton *)agreeButton {
     if (!_agreeButton) {
-        _agreeButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.loginButton.frame), CGRectGetMaxY(self.loginButton.frame) +10, 18, 18)];
+        _agreeButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.registerButton.frame), CGRectGetMaxY(self.registerButton.frame) +10, 18, 18)];
         _agreeButton.selected = YES;
         [_agreeButton setImage:[UIImage imageNamed:@"data_export_unselected"] forState:UIControlStateNormal];
         [_agreeButton setImage:[UIImage imageNamed:@"data_export_selected"] forState:UIControlStateSelected];
